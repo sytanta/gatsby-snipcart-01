@@ -20,7 +20,7 @@ const AboutPage = ({ data }) => (
 
 export const query = graphql`
   {
-    img: file(relativePath: { eq: "about-background" }) {
+    img: file(relativePath: { regex: "/about-background/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
   {
-    img: file(relativePath: { eq: "default-background" }) {
+    img: file(relativePath: { regex: "/default-background/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
