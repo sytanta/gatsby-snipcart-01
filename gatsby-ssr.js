@@ -18,7 +18,7 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
     <div
       hidden
       id="snipcart"
-      data-api-key="MGY4OTM1MzgtYzM0ZS00M2ZkLTg5OWQtNTVhZWZhMzhiMzIxNjM3MzM3NzIxNjY5NDk3NTY1"
+      data-api-key={process.env.GATSBY_SNIPCART_API}
     ></div>,
     <script src="https://cdn.snipcart.com/themes/v3.0.20/default/snipcart.js"></script>,
   ])
