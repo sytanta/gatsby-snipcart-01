@@ -14,8 +14,8 @@ export default function Product({ product }) {
             data-item-id={product.id}
             data-item-name={product.title}
             data-item-price={product.price}
+            data-item-url="https://gatsby-snipcart-demo-01.netlify.app/"
             data-item-image={product.image.fluid.src}
-            data-item-url={process.env.GATSBY_STORE_URL}
           >
             add to cart
           </button>
