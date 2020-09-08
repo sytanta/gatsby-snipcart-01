@@ -64,10 +64,11 @@ https://www.iconfinder.com/webalys */}
               )
             })}
             <li className="nav-item">
-              <span
+              {/* <span
                 className="nav-link text-capitalize"
                 data-netlify-identity-button
-              />
+              /> */}
+              <div data-netlify-identity-menu></div>
             </li>
             <li className="nav-item ml-sm-5">
               <FaCartArrowDown className="cart-icon snipcart-checkout" />
