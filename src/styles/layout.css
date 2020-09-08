@@ -63,3 +63,14 @@ h6 {
 .contact {
   background: var(--mainGrey);
 }
+
+.nav-link {
+  cursor: pointer;
+}
+.nav-link a {
+  color: rgba(0, 0, 0, 0.5);
+}
+.nav-link:hover a {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}

@@ -58,6 +58,12 @@ https://www.iconfinder.com/webalys */}
                 </li>
               )
             })}
+            <li className="nav-item">
+              <span
+                className="nav-link text-capitalize"
+                data-netlify-identity-button
+              />
+            </li>
             <li className="nav-item ml-sm-5">
               <FaCartArrowDown className="cart-icon snipcart-checkout" />
             </li>
