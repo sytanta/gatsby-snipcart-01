@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
+import netlifyIdentity from "netlify-identity-widget"
 import { FaCartArrowDown } from "react-icons/fa"
 
 import logo from "../../images/logo.svg"
@@ -20,6 +21,10 @@ export default class Navbar extends Component {
         text: "About",
       },
     ],
+  }
+
+  componentDidMount() {
+    netlifyIdentity.init()
   }
 
   navbarHandler = () => {
