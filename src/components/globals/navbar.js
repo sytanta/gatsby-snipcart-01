@@ -24,9 +24,26 @@ export default class Navbar extends Component {
   }
 
   componentDidMount() {
-    if (window.netlifyIdentity && window.netlifyIdentity.currentUser()) {
-      this.setState({
-        userName: window.netlifyIdentity.currentUser().user_metadata.full_name,
+    if (window.netlifyIdentity) {
+      const identity = window.netlifyIdentity
+
+      if (identity.currentUser()) {
+        this.setState({
+          userName: window.netlifyIdentity.currentUser().user_metadata
+            .full_name,
+        })
+      }
+
+      identity.on("login", user => {
+        this.setState({
+          userName: user.user_metadata.full_name,
+        })
+      })
+
+      identity.on("logout", () => {
+        this.setState({
+          userName: "",
+        })
       })
     }
   }
