@@ -1,9 +1,9 @@
-import netlifyIdentity from "netlify-identity-widget"
+// import netlifyIdentity from "netlify-identity-widget"
 
 export function onRouteUpdate() {
-  window.netlifyIdentity = netlifyIdentity
+  //   window.netlifyIdentity = netlifyIdentity
 
-  netlifyIdentity.init({
+  window.netlifyIdentity.init({
     container: "body",
     locale: "en",
   })

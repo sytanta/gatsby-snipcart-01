@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import netlifyIdentity from "netlify-identity-widget"
+// import netlifyIdentity from "netlify-identity-widget"
 
 import Product from "./product"
 import Title from "../globals/title"
@@ -33,6 +33,8 @@ export default () => {
 
   const allProducts = data.products.edges.slice()
   const [products, setProducts] = useState([])
+
+  const netlifyIdentity = window.netlifyIdentity
 
   useEffect(() => {
     if (netlifyIdentity.currentUser()) {
