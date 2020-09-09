@@ -34,7 +34,7 @@ export default () => {
   const allProducts = data.products.edges.slice()
   const [products, setProducts] = useState([])
 
-  const netlifyIdentity = window.netlifyIdentity
+  const netlifyIdentity = window && window.netlifyIdentity
 
   useEffect(() => {
     if (netlifyIdentity && netlifyIdentity.currentUser()) {
