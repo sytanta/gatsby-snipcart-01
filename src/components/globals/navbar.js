@@ -6,6 +6,7 @@ import logo from "../../images/logo.svg"
 
 export default class Navbar extends Component {
   state = {
+    userName: "",
     navbarOpen: false,
     css: "collapse navbar-collapse",
     links: [
@@ -20,6 +21,14 @@ export default class Navbar extends Component {
         text: "About",
       },
     ],
+  }
+
+  componentDidMount() {
+    if (window.netlifyIdentity && window.netlifyIdentity.currentUser()) {
+      this.setState({
+        userName: window.netlifyIdentity.currentUser().user_metadata.full_name,
+      })
+    }
   }
 
   navbarHandler = () => {
@@ -59,12 +68,15 @@ https://www.iconfinder.com/webalys */}
               )
             })}
             <li className="nav-item">
+              <span className="nav-link user-name">
+                {this.state.userName ? this.state.userName + ", " : ""}
+              </span>
               <span
                 className="nav-link text-capitalize"
                 data-netlify-identity-button
               />
             </li>
-            <li className="nav-item ml-sm-5">
+            <li className="nav-item ml-sm-5 icon-cart">
               <FaCartArrowDown className="cart-icon snipcart-checkout" />
             </li>
           </ul>

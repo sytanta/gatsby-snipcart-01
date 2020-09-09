@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-// import netlifyIdentity from "netlify-identity-widget"
 
 import Product from "./product"
 import Title from "../globals/title"

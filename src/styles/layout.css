@@ -64,8 +64,12 @@ h6 {
   background: var(--mainGrey);
 }
 
+.navbar {
+  padding: 1rem 1rem;
+}
 .nav-link {
   cursor: pointer;
+  display: inline-block;
 }
 .nav-link a {
   color: rgba(0, 0, 0, 0.5);
@@ -73,4 +77,28 @@ h6 {
 .nav-link:hover a {
   color: rgba(0, 0, 0, 0.7);
   text-decoration: none;
+}
+.navbar-expand-sm .navbar-nav .nav-link + .nav-link {
+  padding-left: 0.5rem;
+}
+.user-name {
+  cursor: default;
+}
+.icon-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 576px) {
+  .navbar-expand-sm .navbar-nav .nav-link + .nav-link {
+    padding-left: 0;
+  }
+  .user-name {
+    margin-left: 1rem;
+  }
+  .icon-cart {
+    padding: 0;
+  }
 }
