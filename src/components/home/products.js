@@ -37,7 +37,7 @@ export default () => {
   const netlifyIdentity = window.netlifyIdentity
 
   useEffect(() => {
-    if (netlifyIdentity.currentUser()) {
+    if (netlifyIdentity && netlifyIdentity.currentUser()) {
       setProducts(allProducts)
     } else {
       setProducts(
@@ -47,17 +47,19 @@ export default () => {
       )
     }
 
-    netlifyIdentity.on("login", () => {
-      setProducts(allProducts)
-    })
+    if (netlifyIdentity) {
+      netlifyIdentity.on("login", () => {
+        setProducts(allProducts)
+      })
 
-    netlifyIdentity.on("logout", () => {
-      setProducts(
-        allProducts.filter(({ node: pro }) => {
-          return !pro.private
-        })
-      )
-    })
+      netlifyIdentity.on("logout", () => {
+        setProducts(
+          allProducts.filter(({ node: pro }) => {
+            return !pro.private
+          })
+        )
+      })
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
