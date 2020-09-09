@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import netlifyIdentity from "netlify-identity-widget"
 import { FaCartArrowDown } from "react-icons/fa"
 
 import logo from "../../images/logo.svg"
@@ -21,10 +20,6 @@ export default class Navbar extends Component {
         text: "About",
       },
     ],
-  }
-
-  componentDidMount() {
-    netlifyIdentity.init()
   }
 
   navbarHandler = () => {
@@ -64,11 +59,10 @@ https://www.iconfinder.com/webalys */}
               )
             })}
             <li className="nav-item">
-              {/* <span
+              <span
                 className="nav-link text-capitalize"
                 data-netlify-identity-button
-              /> */}
-              <div data-netlify-identity-menu></div>
+              />
             </li>
             <li className="nav-item ml-sm-5">
               <FaCartArrowDown className="cart-icon snipcart-checkout" />
