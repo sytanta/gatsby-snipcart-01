@@ -1,14 +1,14 @@
 const React = require('react')
 
-// const Layout = require('./src/components/Layout')
+const Layout = require('./src/components/layout')
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
-// exports.wrapPageElement = ({ element, props }) => {
-//     return <Layout {...props}>{element}</Layout>
-// }
+exports.wrapPageElement = ({ element, props }) => (
+    <Layout.default {...props}>{element}</Layout.default>
+)
 
 exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
     setHeadComponents([
