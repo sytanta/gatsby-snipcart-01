@@ -18,7 +18,7 @@ const getProducts = graphql`
                     image {
                         fluid(maxHeight: 426) {
                             src
-                            ...GatsbyContentfulFluid_tracedSVG
+                            ...GatsbyContentfulFluid
                         }
                     }
                 }
@@ -26,8 +26,7 @@ const getProducts = graphql`
         }
     }
 `
-
-export default () => {
+const Products = () => {
     const data = useStaticQuery(getProducts)
 
     const allProducts = data.products.edges.slice()
@@ -78,3 +77,5 @@ export default () => {
         </section>
     )
 }
+
+export default Products
