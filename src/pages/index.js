@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
 import SEO from '../components/seo'
 import BackgroundSection from '../components/globals/background-section'
 import Info from '../components/home/info'
@@ -10,7 +9,7 @@ import Products from '../components/home/products'
 import Contact from '../components/home/contact'
 
 const IndexPage = ({ data }) => (
-    <Layout>
+    <>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <BackgroundSection
             img={data.img.childImageSharp.fluid}
@@ -20,7 +19,7 @@ const IndexPage = ({ data }) => (
         <Menu items={data.menu} />
         <Products />
         <Contact />
-    </Layout>
+    </>
 )
 
 export const query = graphql`
