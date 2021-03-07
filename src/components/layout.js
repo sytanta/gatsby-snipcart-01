@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
@@ -28,26 +28,34 @@ const variants = {
     },
 }
 
-const Layout = ({ children }) => (
-    <>
-        <Navbar />
-        <AnimateSharedLayout>
-            <AnimatePresence exitBeforeEnter>
-                <motion.main
-                    key={location.pathname}
-                    variants={variants}
-                    initial="initial"
-                    animate="enter"
-                    exit="exit"
-                >
-                    {children}
-                </motion.main>
-            </AnimatePresence>
-        </AnimateSharedLayout>
-        {/* {children} */}
-        <Footer />
-    </>
-)
+const Layout = ({ location, children }) => {
+    useEffect(() => {
+        window.netlifyIdentity.init({
+            container: 'body',
+            locale: 'en',
+        })
+    }, [])
+
+    return (
+        <>
+            <Navbar />
+            <AnimateSharedLayout>
+                <AnimatePresence exitBeforeEnter>
+                    <motion.main
+                        key={location.pathname}
+                        variants={variants}
+                        initial="initial"
+                        animate="enter"
+                        exit="exit"
+                    >
+                        {children}
+                    </motion.main>
+                </AnimatePresence>
+            </AnimateSharedLayout>
+            <Footer />
+        </>
+    )
+}
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
